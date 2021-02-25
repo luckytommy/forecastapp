@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val viewModel by viewModels<MainActivityViewModel>()
+        val viewModel by viewModels<MainActivityViewModel> { MainActivityViewModel.Factory() }
         viewModel.forecastModelLiveData.observe(this) { forecastModel ->
             populateViews(forecastModel)
         }
